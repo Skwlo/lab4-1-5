@@ -18,8 +18,16 @@ const register = () => {
   }, 3000)
   router.push({ name: 'event-detail-view', params: { id: props.event.id } })
 }
+const update = () => {
+  store.updateMessage('You are successuflly update for ' + props.event.title)
+  setTimeout(() => {
+  store.resetMessage()
+  }, 5000)
+  router.push({ name: 'event-detail-view', params: { id: props.event.id } })
+}
 </script>
 <template>
   <p>Register event here</p>
-  <button @click="register">Register</button>
+  <button @click="register">Register</button> |
+  <button @click="update">Update</button>
 </template>
